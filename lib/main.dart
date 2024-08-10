@@ -21,20 +21,15 @@ class MyApp extends StatelessWidget {
         body: const SingleChildScrollView(
           child: Column(
             children: [
+              ImageSection(image: 'image_server/dogs-improve.jpg'),
               TitleSection(
-                name: 'Lake Oeschinen',
+                name: 'Dog Shelter Kun',
                 location: 'Kandersteg, Switzerland',
               ),
               ButtonSection(),
               TextSection(
                 description:
-                    'Lake Oeschinen lies at the foot of the Blüemlisalp in the '
-                    'Bernese Alps. Situated 1,578 meters above sea level, it '
-                    'is one of the larger Alpine Lakes. A gondola ride from '
-                    'Kandersteg, followed by a half-hour walk through pastures '
-                    'and pine forest, leads you to the lake, which warms to 20 '
-                    'degrees Celsius in the summer. Activities enjoyed here '
-                    'include rowing, and riding the summer toboggan run.',
+                    'A dog shelter is a dedicated facility where abandoned, stray, or surrendered dogs are housed temporarily while they await adoption. The shelter is typically managed by a combination of staff and volunteers who care for the dogs, ensuring they are fed, groomed, and given medical attention as needed.',
               ),
             ],
           ),
@@ -88,7 +83,7 @@ class TitleSection extends StatelessWidget {
             Icons.star,
             color: Colors.red[500],
           ),
-          SizedBox(width: 20),
+          SizedBox(width: 5),
           const Text('41'),
         ],
       ),
@@ -105,7 +100,7 @@ class ButtonSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Color color = Theme.of(context).primaryColor;
+    final Color color = Theme.of(context).primaryColorDark;
 
 // #enddocregion button-start
     return SizedBox(
@@ -192,3 +187,19 @@ class TextSection extends StatelessWidget {
   }
 }
 // #enddocregion text-section
+
+class ImageSection extends StatelessWidget {
+  const ImageSection({super.key, required this.image});
+
+  final String image;
+
+  @override
+  Widget build(BuildContext context) {
+    return Image.asset(
+      image,
+      width: 600,
+      height: 240,
+      fit: BoxFit.cover,
+    );
+  }
+}
